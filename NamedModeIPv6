@@ -1,0 +1,13 @@
+# Configuring Named Mode IPv6
+
+ipv6 unicast-routing
+router eigrp CAMPUS_A
+  address-family ipv6 unicast autonomous-system 10 #autonomous system doesn't have to be the same as IPv4
+
+# automatically eigrp is turned on and you can disable eigrp by going to af-interface
+
+# seeing neighbors and interfaces
+
+show eigrp address-family ipv6 interface
+show eigrp address-family ipv6 neighbor
+show eigrp address-family ipv6 topology
