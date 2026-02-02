@@ -1,0 +1,22 @@
+# Configuring the named EIGRP on all routers
+
+router eigrp CAMPUS
+  address-family ipv4 unicast autonomous-system 1
+  topology base
+  exit-af-topology
+  network 100.1.0.0
+  network 110.1.0.0
+ exit-address-family
+
+# R5 is a hub and R6,R7,R8,R9 are spokes and connected via logical interface
+# Allowing the hub to send back packets on the interface it received the pakets
+# R5
+router eigrp CAMPUS
+  address-family ipv4 unicast autonomous-system 1
+  af-interface tunnel 0
+  no split-horion
+  topology base
+  exit-af-topology
+  network 100.1.0.0
+  network 110.1.0.0
+ exit-address-family
